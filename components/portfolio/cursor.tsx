@@ -9,7 +9,6 @@ export function Cursor() {
   const ring = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    // Skip on touch / coarse pointers
     if (typeof window === 'undefined') return
     if (window.matchMedia('(pointer: coarse)').matches) return
 
@@ -50,7 +49,7 @@ export function Cursor() {
   })
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-[100] hidden md:block">
+    <div className="pointer-events-none fixed inset-0 z-[100] hidden md:block">
       <div
         ref={ring}
         className="absolute left-0 top-0 h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary opacity-0"

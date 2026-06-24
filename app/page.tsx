@@ -8,6 +8,7 @@ import { ScrollProgress } from "@/components/portfolio/scrollProgress"
 import { SiteNav } from "@/components/portfolio/site-nav"
 import { Hero } from "@/components/portfolio/hero"
 import { About } from "@/components/portfolio/about"
+import { Achievements } from "@/components/portfolio/achievements"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -19,6 +20,7 @@ export default function Page() {
 			<SiteNav />
 			<Hero />
 			<About />
+			<Achievements />
 		</main>
   )
 }

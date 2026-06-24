@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --font-heading: var(--font-space-grotesk), var(--font-sans);
   --font-sans: var(--font-geist-sans), 'Geist Fallback';
@@ -168,6 +166,7 @@
 }
 
 @layer utilities {
+  /* 배경 */
   .grain::before {
     content: '';
     position: fixed;
@@ -189,14 +188,5 @@
       transparent 55%,
       oklch(0.1 0.01 60 / 0.55) 100%
     );
-  }
-
-  .reveal-hidden {
-    opacity: 0;
-  }
-
-  .dot.is-active {
-    width: 2rem;
-    background-color: var(--primary);
   }
 }

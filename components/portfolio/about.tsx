@@ -10,7 +10,6 @@ export function About() {
 
   useGSAP(
     () => {
-      // Word-by-word fade as the paragraph enters
       gsap.from('[data-about-word]', {
         opacity: 0.08,
         stagger: 0.02,
@@ -49,16 +48,17 @@ export function About() {
 
         <div
           data-about-copy
-          className="max-w-4xl font-heading text-2xl font-medium leading-snug text-balance text-foreground/55 md:text-4xl"
+          className="max-w-4xl font-heading text-2xl font-medium leading-snug wrap-break-word text-foreground/55 md:text-4xl"
         >
           {words.map((word, i) => {
-            const emphasized = /표준|접근성|UI|안정/.test(word)
+            const emphasized = /표준|접근성|UI|다양한|이해관계자/;
+            const isEmphasized = emphasized.test(word.replace(/[()]/g, ''));
             return (
               <span
                 key={i}
                 data-about-word
                 className={
-                  emphasized
+                  isEmphasized
                     ? 'inline-block font-semibold text-foreground'
                     : 'inline-block'
                 }
@@ -69,9 +69,13 @@ export function About() {
           })}
         </div>
 
-        <p className="mt-8 max-w-2xl text-pretty leading-relaxed text-muted-foreground">
-          {about.detail}
-        </p>
+        <div className="mt-8">
+          {about.detail.map((line, i) => (
+            <p key={i} className="leading-relaxed text-muted-foreground">
+              {line}
+            </p>
+          ))}
+        </div>
 
         <div
           data-stats

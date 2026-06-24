@@ -19,28 +19,27 @@ export function Hero() {
         duration: 0.8,
         delay: 0.3,
       })
-        .from(
-          '[data-hero-line] [data-word]',
-          {
-            yPercent: 120,
-            opacity: 0,
-            duration: 1.1,
-            stagger: 0.12,
-          },
-          '-=0.3',
-        )
-        .from(
-          '[data-hero-tagline]',
-          { opacity: 0, y: 24, duration: 0.9 },
-          '-=0.6',
-        )
-        .from(
-          '[data-hero-meta] > *',
-          { opacity: 0, y: 16, duration: 0.7, stagger: 0.1 },
-          '-=0.5',
-        )
+      .from(
+        '[data-hero-line] [data-word]',
+        {
+          yPercent: 120,
+          opacity: 0,
+          duration: 1.1,
+          stagger: 0.12,
+        },
+        '-=0.3',
+      )
+      .from(
+        '[data-hero-tagline]',
+        { opacity: 0, y: 24, duration: 0.9 },
+        '-=0.6',
+      )
+      .from(
+        '[data-hero-meta] > *',
+        { opacity: 0, y: 16, duration: 0.7, stagger: 0.1 },
+        '-=0.5',
+      )
 
-      // Ambient drifting glow
       gsap.to('[data-hero-glow]', {
         opacity: 0.55,
         scale: 1.1,
@@ -50,7 +49,6 @@ export function Hero() {
         ease: 'sine.inOut',
       })
 
-      // Parallax on scroll
       gsap.to('[data-hero-inner]', {
         yPercent: 28,
         opacity: 0.15,
@@ -63,7 +61,6 @@ export function Hero() {
         },
       })
 
-      // Scroll cue bob
       gsap.to('[data-scroll-cue]', {
         y: 10,
         duration: 1.2,
@@ -83,7 +80,6 @@ export function Hero() {
     >
       <div
         data-hero-glow
-        aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-primary/20 opacity-25 blur-[120px]"
       />
       <div data-hero-inner className="mx-auto w-full max-w-6xl">
@@ -129,7 +125,7 @@ export function Hero() {
 
         <p
           data-hero-tagline
-          className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl"
+          className="mt-8 max-w-xl whitespace-pre-line text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
           {profile.tagline}
         </p>
