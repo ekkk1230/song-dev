@@ -9,6 +9,7 @@ import { SiteNav } from "@/components/portfolio/site-nav"
 import { Hero } from "@/components/portfolio/hero"
 import { About } from "@/components/portfolio/about"
 import { Achievements } from "@/components/portfolio/achievements"
+import { Experience } from "@/components/portfolio/experience"
 
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 
@@ -21,6 +22,7 @@ export default function Page() {
 			<Hero />
 			<About />
 			<Achievements />
+			<Experience />
 		</main>
   )
 }

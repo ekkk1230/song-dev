@@ -112,7 +112,7 @@ function ProjectRow({ project, idx }: { project: Project; idx: number }) {
 
             <div className={reversed ? 'md:order-1' : ''}>
                 <div data-reveal className="flex items-center gpa-4">
-                    <span className="font-mono text-xs tracking-widset text-primary">
+                    <span className="font-mono text-xs text-primary">
                         {project.category}
                     </span>
                     <span className="h-px flex-1 bg-border"></span>
@@ -188,12 +188,12 @@ export function Achievements() {
                 >
                     (02) — KEY ACHIEVEMENTS · 주요 성과
                 </p>
-                <h2
+                {/* <h2
                     data-work-head
                     className="max-w-3xl font-heading text-4xl font-semibold leading-tight break-keep text-foreground md:text-6xl"
                 >
                     화면 뒤의 데이터까지<br /> 책임지는 작업물
-                </h2>
+                </h2> */}
                 </div>
 
                 <div className="mt-12 md:mt-20">

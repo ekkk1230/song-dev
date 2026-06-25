@@ -107,8 +107,8 @@ export type WorkItem = {
 
 
 export const projectGroups: {
-  company: { label: string; sub: string; items: WorkItem[] }
   personal: { label: string; sub: string; items: WorkItem[] }
+  company: { label: string; sub: string; items: WorkItem[] }
 } = {
   company: {
     label: '회사 프로젝트',
