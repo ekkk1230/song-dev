@@ -1,90 +1,117 @@
 'use client'
 
-import { useRef } from "react"
-import { useGSAP } from "@gsap/react"
-import gsap from "gsap"
-import { about } from "@/lib/portfolio-data"
+import { about, profile } from "@/lib/portfolio-data";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import { Section } from "@/components/ui/Section";
+import { SectionTitle } from "@/components/ui/SectionTitle";
 
 export function About() {
-    const root = useRef<HTMLElement>(null)
+    const sectionRef = useRef<HTMLElement>(null);
+    const contentRef = useRef<HTMLDivElement>(null);
 
-    useGSAP(
-        () => {
-            gsap.from('[data-about-word]', {
-                opacity: 0.08,
-                stragger: 0.02,
-                ease: 'none',
+    useGSAP(() => {
+        const elements = contentRef.current?.children;
+        if (!elements) return;
+
+        gsap.fromTo(
+            elements,
+            { opacity: 0, y: 30 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: .9,
+                stagger: .2,
+                ease: 'power2.out',
                 scrollTrigger: {
-                    trigger: '[data-about-copy]',
+                    trigger: sectionRef.current,
                     start: 'top 80%',
-                    end: 'bottom 60%',
-                    scrub: true,
+                    toggleActions: 'play none none none',
                 },
-            })
+            }
+        )
+    }, { scope: sectionRef });
 
-            gsap.from('[data-stat]', {
-                y: 40,
-                opacity: 0,
-                duration: .7,
-                stagger: .1,
-                ease: 'power3.out',
+    useGSAP(() => {
+        const stateElements = sectionRef.current?.querySelectorAll('.stat-number');
+        stateElements?.forEach(el => {
+            const rawTarget = el.getAttribute('data-value') || '0';
+            const numericValue = parseFloat(rawTarget.replace(/[^0-9.]/g, '')) || 0;
+            const suffix = rawTarget.replace(/[0-9.]/g, '');
+            const obj = { val: 0 };
+
+            gsap.to(obj, {
+                val: numericValue,
+                duration: 1.5,
+                ease: 'power1.out',
                 scrollTrigger: {
-                    trigger: '[data-stats]',
-                    start: 'top 85%',
+                    trigger: sectionRef.current,
+                    start: 'top 20%',
+                    toggleActions: 'play none none none',
                 },
-            })
-        },
-        { scope: root },
-    )
+                onUpdate: () => {
+                    const currentFormatted = Number.isInteger(numericValue)
+                        ? Math.floor(obj.val)
+                        : obj.val.toFixed(1);
 
-    const words = about.intro.split(' ');
+                    el.textContent = currentFormatted + suffix;
+                }
+            });
+        });
+    }, { scope: sectionRef });
 
     return (
-        <section id="about" ref={root} className="px-6 py-28 md:py-40">
-            <div className="mx-auto max-w-6xl">
-                <p className="mb-12 font-mono text-sm tracking-widest text-primary">
-                    (01) - ABOUT
-                </p>    
+        <Section id="about" ref={sectionRef}>
+            <div ref={contentRef} className="content-wrap">
+                {/* 섹션 번호 레이블 */}
+                <SectionTitle 
+                    number="01"
+                    category="ABOUT"
+                    title={profile.tagline.split('\n')[0]}
+                    subtitle={profile.tagline.split('\n')[1]}
+                />
 
-                <div
-                    data-about-copy
-                    className="max-w-4xl font-heading text-2xl font-medium leading-snug text-balance text-foreground/55 md:text-4xl"
-                >
-                    {words.map((word, i) => {
-                        const emphasized = /표준|접근성|UI|안정/.test(word);
+                {/* 핵심소개 & 상세 내용 */}
+                <div className="space-y-[3rem]">
+                    
+                    {/* 상단 메인 인트로 박스 */}
+                    <div className="bg-neutral-900/30 p-[3.6rem] rounded-[1.6rem] border border-l-[0.4rem] border-l-primary border-neutral-800">
+                        <p className="text-white text-[1.8rem] md:text-[2.2rem] font-medium leading-[1.6]">
+                            {about.intro}
+                        </p>
+                    </div>
 
-                        return (
-                            <span 
-                                key={i}
-                                data-about-word
-                                className={emphasized 
-                                          ? 'inline-block font-semibold text-foreground'
-                                          : 'inline-block' }
-                            >{word}&nbsp;</span>
-                        )
-                    })}
+                    {/* 하단 상세 내용 그리드 */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-[2rem]">
+                        {about.detail.map((paragraph, idx) => (
+                            <div key={idx} className="bg-neutral-900/20 p-[2.4rem] rounded-[1.4rem] border border-neutral-800/60 hover:border-primary/40 transition-colors duration-300">
+                                <p className="leading-[1.7] text-neutral-300 text-[1.4rem] md:text-[1.5rem]">
+                                    {paragraph}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
 
-                <p className="mt-8 max-w-2xl text-pretty leading-relaced text-muted-foreground">
-                    {about.detail}
-                </p>
-
-                <div
-                    data-stats
-                    className="mt-20 grid grid-cols-2 gap-x-6 gap-y-12 border-t border-border pt-12 md:grid-cols-4"
-                >
-                    {about.stats.map((stat) => (
-                        <div key={stat.label} data-stat>
-                            <div className="font-heading text-4xl font-semibold text-primary md:text-5xl">
-                                {stat.value}
+                {/* 통계 지표 */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-[1.6rem] pt-[1.6rem]">
+                    {about.stats.map((stat, idx) => (
+                        <div key={idx} className="p-[2.4rem] rounded-[1.4rem] bg-neutral-900/20 border border-neutral-800/60">
+                            <div 
+                                className="stat-number text-[3.6rem] font-bold text-primary mb-[0.4rem] font-mono"
+                                data-value={stat.value}
+                            >
+                                0
                             </div>
-                            <div className="mt-2 font-mono text-xs tracking-widest text-muted-foreground">
-                                {stat.label.toUpperCase()}
+                            <div className="text-[1.2rem] text-neutral-400">
+                                {stat.label}
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>            
-        </section>
+            </div>
+        </Section>
     )
 }

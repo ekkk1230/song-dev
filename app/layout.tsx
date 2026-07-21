@@ -1,18 +1,5 @@
-// import { Analytics } from '@vercel/analytics/next'
-import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google'
+import type { Metadata } from 'next'
 import './globals.css'
-
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-space-grotesk',
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-})
 
 export const metadata: Metadata = {
   title: '송은경 — 웹 퍼블리셔',
@@ -38,14 +25,6 @@ export const metadata: Metadata = {
   },
 }
 
-export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: 'white' },
-    { media: '(prefers-color-scheme: dark)', color: 'black' },
-  ],
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,7 +33,6 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} bg-background`}
     >
       <body className="font-sans antialiased grain vignette">
         {children}
