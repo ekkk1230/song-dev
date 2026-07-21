@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: '송은경 — 웹 퍼블리셔',
+  title: 'hhh',
   description:
     '웹 표준과 웹 접근성을 준수한 UI를 구현하는 3년 차 웹 퍼블리셔 송은경의 포트폴리오.',
   generator: 'v0.app',

@@ -1,5 +1,5 @@
 'use client'
-
+import React from 'react';
 import { about, profile } from "@/lib/portfolio-data";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";

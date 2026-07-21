@@ -1,5 +1,5 @@
 'use client'
-
+import React from 'react';
 import { useRef } from 'react'
 import { projectGroups, type WorkItem } from "@/lib/portfolio-data"
 
