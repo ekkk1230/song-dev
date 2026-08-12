@@ -1,9 +1,9 @@
 export const profile = {
     name: '송은경',
     nameEn: 'Song Eunkyung',
-    role: '웹 퍼블리셔',
-    roleLine: ['WEB', 'PUBLISHER'],
-    tagline: '웹 표준과 웹 접근성을 준수한 UI를 구현하는 3년 차 퍼블리셔.\n 정교한 마크업에 개발의 깊이를 더합니다.',
+    role: 'UI / Frontend Developer',
+    roleLine: ['FRONTEND', 'PUBLISHER'],
+    tagline: '웹 표준과 접근성을 준수하는 마크업 기반 위에, React·TypeScript의 동적 상태 관리와 로직 구현을 더하는 4년 차 프론트엔드 개발자입니다.',
     location: 'Anyang, KR',
     status: '리드포인트시스템 · 대리',
     email: 'ek10314@naver.com',
@@ -14,14 +14,17 @@ export const profile = {
 };
 
 export const about = {
-    intro: 'HTML/CSS 기반의 마크업과 스타일링을 바탕으로 웹 표준과 웹 접근성을 준수한 UI를 구현합니다. 사내 단독 퍼블리셔로 다양한 이해관계자 (기획자, 디자이너, 백엔드)와 원활한 협업을 통해 프로젝트 효율을 높였습니다.',
-    detail: ['디자인 의도를 픽셀 단위로 구현하는 퍼블리싱 전문성을 바탕으로, 로직 구현과 데이터 연동까지 기술적 영역을', '꾸준히 확장하고 있습니다. 현재 Java/Spring을 학습하며 백엔드 협업 이해도를 넓히고 있습니다.'],
-    stats: [
-        { value: '3+', label: '경력 (년)' },
-        { value: '23', label: '참여 프로젝트' },
-        { value: '14', label: '접근성 준수 프로젝트' },
-        { value: '3', label: '개인 프로젝트' },
-    ]
+  intro: '웹 표준 및 접근성을 완벽히 이해하는 4년 차 UI 개발자입니다. HTML/CSS/JS 기반의 마크업 내공을 바탕으로, React/Next.js 환경에서의 동적 UI 개발 및 상태 관리 역량을 내재화하였습니다.',
+  detail: [
+    '서버 사이드 렌더링(JSP, Thymeleaf) 환경에서 백엔드 데이터 구조를 이해하고, 데이터 흐름을 고려한 UI 인터페이스를 설계한 경험이 있습니다.', 
+    '퍼블리싱 업무를 넘어, 개인 프로젝트를 통해 TypeScript와 API 통신을 활용한 동적 프론트엔드 개발 역량을 꾸준히 확장하고 있습니다.'
+  ],
+  stats: [
+      { value: '4', label: '경력 (년)' },
+      { value: '23', label: '참여 프로젝트' },
+      { value: '14', label: '접근성 준수 프로젝트' },
+      { value: '3', label: '개인 프로젝트' },
+  ]
 };
 
 export type Project = {
@@ -89,10 +92,9 @@ export const experience = {
   role: '웹 퍼블리셔 (대리)',
   period: '2022.09 ~ 현재',
   points: [
-    '회사 내 단독 퍼블리셔로 전 프로젝트 참여 및 퍼블리싱 완수',
+    '사내 단독 UI/Frontend 담당자로 웹·앱 프로젝트 전반의 인터페이스 설계 및 컴포넌트 아키텍처 구축',
     '웹 접근성 총 15회 — 신규 8건 + 기존 서비스 재인증 7회',
-    'React(Styled-components) 기반 컴포넌트 단위 UI 작업',
-    'React(Styled-components) 기반 컴포넌트 단위 UI 작업',
+    'React 및 Styled-components를 활용한 재사용 가능한 공통 컴포넌트 시스템 구축 및 UI 모듈화',
     '대시보드·웹사이트·앱(웹뷰/하이브리드) UI 퍼블리싱',
     '인터랙션·시각화: GSAP, Chart.js / ECharts 활용',
   ]
@@ -113,6 +115,7 @@ export type WorkItem = {
       src: string | null;
       label: string;
       desc: string;
+      customHeight?: string;
     }[];
     certifications?: { name: string, year: string }[];
   };
@@ -140,9 +143,9 @@ export const projectGroups: {
           ],
           result: '레이아웃 재작업 없이 데이터 타입 정의만으로 기능 확장이 가능하여 유지보수 효율 극대화',
           images: [
-            { id: 1, src: '/project/diagram.png', label: '모달 폴더 구조도', desc: 'Fragment 컴포넌트 체계화' },
+            { id: 1, src: '/project/diagram.png', label: '모달 폴더 구조도', desc: 'Fragment 컴포넌트 체계화', customHeight: 'h-full' },
             { id: 2, src: '/project/pop-layout.png', label: '공통 모달 레이아웃', desc: 'HTML 컨테이너 표준화' },
-            { id: 3, src: '/project/popup-js.png', label: '핵심 동적 렌더링 로직', desc: 'XSS 방지 및 분기 제어' },
+            { id: 3, src: '/project/popup-js.png', label: '핵심 동적 렌더링 로직', desc: '모달 타입별 분기 제어 및 상태 관리', customHeight: 'h-full' },
           ]
         }
       },
@@ -160,7 +163,7 @@ export const projectGroups: {
           ],
           result: '서울시복지재단 포함 총 13건의 웹 접근성 품질 인증을 100% 획득하며, 표준화된 퍼블리싱 가이드 정립',
           images: [
-            { id: 1, src: "/project/tab.mov", label: '접근성 진단 프로세스', desc: '논리적 포커스 이동 구조' },
+            { id: 1, src: "https://www.youtube.com/embed/P8xCMJnXqZo?autoplay=1&mute=1", label: '접근성 진단 프로세스', desc: '논리적 포커스 이동 구조' },
             { id: 2, src: "/project/active-pop.png", label: '스크린 리더 최적화', desc: '팝업 활성화 시 aria-hidden="true" 속성을 동적으로 부여하여 스크린 리더가 불필요한 영역을 읽지 않도록 설계' },
             { id: 3, src: "/project/focus-trap.png", label: '키보드 포커스 제어', desc: 'focusin 이벤트 리스너와 keydown 제어를 통해 포커스 트랩 구현' },
             { id: 4, src: "/project/event-close.png", label: '라이프사이클 관리', desc: '팝업 닫기 시 모든 이벤트 리스너를 off 처리하고, 사용자가 기존에 조작하던 위치(Trigger Button)로 포커스 복귀' }
@@ -183,7 +186,7 @@ export const projectGroups: {
         name: '브랜드 플랫폼 리뉴얼 및 인터랙티브 웹 고도화',
         description: '기존 시스템의 기술 부채 해결을 위한 고도화 작업 및 UI/UX 리뉴얼 참여',
         stack: ['JavaScript', 'GSAP'],
-         details: {
+        details: {
           title: 'GSAP 기반 인터랙티브 UI/UX 전면 리뉴얼',
           summary: '스크롤 액션과 시각적 효과를 강화한 반응형 웹 퍼블리싱 구축',
           overview: [
@@ -195,27 +198,22 @@ export const projectGroups: {
           images: [
             { 
               id: 1, 
-              src: "/project/lps.mov", 
-              label: '자사 홈페이지 (PC)', 
-              desc: 'GSAP Timeline을 활용하여 메인 비주얼을 순차적으로 노출하는 인터랙티브 효과 구현' 
-            },
-            { 
-              id: 2, 
-              src: "/project/lps-mobile.mov", 
-              label: '자사 홈페이지 (Mobile)', 
-              desc: '모바일 환경에 최적화된 레이아웃 재배치 및 애니메이션 퍼포먼스 최적화' 
-            },
-            { 
-              id: 3, 
-              src: "/project/k-sound.mov", 
+              src: "https://www.youtube.com/embed/4nin7BzNFig?si=H20pYJL7rmwvMl9k&autoplay=1&mute=1",
               label: 'K-Sound 라이브러리 (PC)', 
               desc: 'ScrollTrigger를 적용하여 사용자의 스크롤 액션과 연동된 콘텐츠 스토리텔링 구현' 
             },
             { 
-              id: 4, 
-              src: "/project/k-sound-mobile.mov", 
+              id: 2, 
+              src: "https://www.youtube.com/embed/vv6giXsZ5JI?si=MiXSHeYMyaZMCe8q&autoplay=1&mute=1",
               label: 'K-Sound 라이브러리 (Mobile)', 
               desc: '터치 인터페이스를 고려한 스크롤 성능 개선 및 모바일 반응형 인터랙션 최적화' 
+            },
+            { 
+              id: 3, 
+              src: "/project/gsap.png", 
+              label: 'GSAP ScrollTrigger와 Timeline을 활용한 반응형 스크롤 인터랙션 구현', 
+              desc: 'ScrollTrigger와 타임라인 라벨 시스템을 활용해 디바이스 환경별 반응형 스크롤 인터랙션과 순차적 애니메이션을 최적화' ,
+              customHeight: 'h-[1200px]'
             }
           ]
         }
@@ -233,9 +231,60 @@ export const projectGroups: {
       // },
       {
         name: 'NuriAI',
-        description: 'TypeScript 기반으로 AI API를 이용해 교육계획안을 생성하는 프로젝트',
-        stack: ['TypeScript', 'Next.js'],
-      },
+        description: 'TypeScript 기반으로 AI API를 이용해 교육계획안을 생성하는 풀스택 웹 애플리케이션',
+        stack: ['TypeScript', 'Next.js', 'Zustand', 'Spring Boot', 'JPA'],
+        details: {
+          title: '견고한 상태 관리와 API 연동: 타입 안정성 및 데이터 흐름 최적화',
+          summary: 'Zustand와 TypeScript를 활용한 안전한 회원 관리 및 Spring Boot·JPA 기반 백엔드 연동 구조 설계',
+          overview: [
+            'Next.js와 TypeScript 환경에서 회원 인증, 정보 수정, 계정 찾기 등 핵심 사용자 관리 비즈니스 로직 구현',
+            'Zustand와 persist 미들웨어를 활용하여 로그인 세션 및 전역 상태를 효율적으로 관리하고 렌더링 최적화 수행',
+            'Spring Boot 컨트롤러와 JPA 기반 레포지토리를 연동하여 RESTful API를 구축하고, 서버-클라이언트 간 표준화된 JSON 응답 포맷 설계',
+            '일회성 데이터(임시 비밀번호 등) 처리 시 전역 상태 잔존 문제를 해결하기 위해 함수 직접 리턴 및 에러 핸들링 구조 도입으로 보안성 및 정합성 향상'
+          ],
+          result: 'API 응답 불일치 및 전역 상태 잔존으로 인한 버그를 원천 차단하고, 엄격한 TypeScript 인터페이스 정의로 컴파일 단계에서 휴먼 에러 방지',
+          images: [
+            { 
+              id: 1, 
+              src: '/project/nuriai-store.png', 
+              label: 'Zustand 전역 상태 구조', 
+              desc: 'TypeScript 인터페이스를 활용한 사용자 및 인증 상태 정의', 
+              customHeight: 'h-full' 
+            },
+            { 
+              id: 2, 
+              src: '/project/nuriai-persist.png', 
+              label: 'Persist 미들웨어 설정', 
+              desc: '로컬 스토리지 연동 및 partialize를 통한 세션 데이터 최적화' 
+            },
+            { 
+              id: 3, 
+              src: '/project/nuriai-api.png', 
+              label: '동적 응답 맵핑 구조', 
+              desc: 'Spring Boot 컨트롤러에서 Map을 활용한 유연한 데이터 전달 및 응답 포맷 처리'
+            },
+            { 
+              id: 4, 
+              src: '/project/nuriai-find.png', 
+              label: '임시 비밀번호 발급 로직', 
+              desc: '전역 상태 잔존 이슈를 해결하기 위한 함수 직접 리턴 및 에러 핸들링 구조' 
+            },
+            { 
+              id: 5, 
+              src: '/project/nuriai-hook.png', 
+              label: '커스텀 훅 분리 (useFindForm)', 
+              desc: '비즈니스 로직을 훅으로 분리하여 컴포넌트 코드 간결화 및 재사용성 확보', 
+              customHeight: 'h-full' 
+            },
+            { 
+              id: 6, 
+              src: '/project/nuriai-ui.png', 
+              label: '최종 서비스 화면', 
+              desc: 'AI 기반 교육계획안 생성 및 회원 기능이 통합된 메인 화면' 
+            },
+          ]
+        }
+      }
       // {
       //   name: 'Trip-Diary',
       //   description: '공공 데이터 API 연동하여 데이터를 기반으로 사용자의 여행 경로 지도를 생성',
@@ -255,20 +304,20 @@ export const education = [
 
 export const skills = [
   {
-    group: 'Frontend & UI',
-    items: ['HTML5', 'CSS3 / SCSS', 'JavaScript', 'jQuery', 'GSAP'],
+    group: 'Frontend & Framework',
+    items: ['React', 'Next.js', 'TypeScript', 'JavaScript'],
   },
   {
-    group: 'Framework',
-    items: ['React', 'Styled-components', 'Next.js', 'TypeScript', 'Tailwind'],
+    group: 'State & Styling',
+    items: ['Zustand', 'Styled-components', 'Tailwind CSS', 'SCSS'],
   },
   {
-    group: 'Visualization',
-    items: ['Chart.js', 'ECharts', '웹 접근성 검수'],
+    group: 'UI & Interaction', 
+    items: ['HTML5', 'CSS3', 'GSAP', '웹 접근성 검수'],
   },
   {
-    group: 'Tools & Backend',
-    items: ['Git / SVN', 'Figma / Zeplin', 'Java / Spring', 'JPA / MySQL'],
+    group: 'Experience',
+    items: ['Java / Spring', 'JPA / MySQL', 'Git / SVN', 'Figma / Zeplin'],
   },
 ];
 

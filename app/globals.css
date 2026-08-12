@@ -2,6 +2,7 @@
 
 @theme {
   --color-primary: #ffb900;
+  --color-muted: #ccc;
 }
 
 @layer base {
@@ -14,5 +15,33 @@
   html {
     scroll-behavior: smooth;
     font-size: 10px;
+  }
+}
+
+@layer utilities {
+  .border-border { border-color: #ebebeb; }
+
+  /* 커스텀 스크롤바 */
+  .custom-scrollbar {
+    scrollbar-width: thin; 
+    scrollbar-color: #ffb900 transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;  
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffb900; 
+    border-radius: 9999px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ffb900;
   }
 }

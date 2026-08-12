@@ -63,7 +63,7 @@ export function About() {
 
     return (
         <Section id="about" ref={sectionRef}>
-            <div ref={contentRef} className="content-wrap">
+            <div ref={contentRef} className="content-wrap space-y-[4rem]">
                 {/* 섹션 번호 레이블 */}
                 <SectionTitle 
                     number="01"
@@ -73,11 +73,11 @@ export function About() {
                 />
 
                 {/* 핵심소개 & 상세 내용 */}
-                <div className="space-y-[3rem]">
+                <div className="space-y-[2.4rem] md:space-y-[3rem]">
                     
                     {/* 상단 메인 인트로 박스 */}
-                    <div className="bg-neutral-900/30 p-[3.6rem] rounded-[1.6rem] border border-l-[0.4rem] border-l-primary border-neutral-800">
-                        <p className="text-white text-[1.8rem] md:text-[2.2rem] font-medium leading-[1.6]">
+                    <div className="bg-neutral-900/30 p-[2.4rem] sm:p-[3rem] md:p-[3.6rem] rounded-[1.6rem] border border-l-[0.4rem] border-l-primary border-neutral-800">
+                        <p className="text-white text-[1.6rem] sm:text-[1.8rem] md:text-[2.2rem] font-medium leading-[1.6]">
                             {about.intro}
                         </p>
                     </div>
@@ -85,8 +85,8 @@ export function About() {
                     {/* 하단 상세 내용 그리드 */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-[2rem]">
                         {about.detail.map((paragraph, idx) => (
-                            <div key={idx} className="bg-neutral-900/20 p-[2.4rem] rounded-[1.4rem] border border-neutral-800/60 hover:border-primary/40 transition-colors duration-300">
-                                <p className="leading-[1.7] text-neutral-300 text-[1.4rem] md:text-[1.5rem]">
+                            <div key={idx} className="bg-neutral-900/20 p-[2rem] md:p-[2.4rem] rounded-[1.4rem] border border-neutral-800/60 hover:border-primary/40 transition-colors duration-300">
+                                <p className="leading-[1.7] text-neutral-300 text-[1.3rem] sm:text-[1.4rem] md:text-[1.5rem]">
                                     {paragraph}
                                 </p>
                             </div>
@@ -96,16 +96,16 @@ export function About() {
                 </div>
 
                 {/* 통계 지표 */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-[1.6rem] pt-[1.6rem]">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-[1.6rem]">
                     {about.stats.map((stat, idx) => (
-                        <div key={idx} className="p-[2.4rem] rounded-[1.4rem] bg-neutral-900/20 border border-neutral-800/60">
+                        <div key={idx} className="p-[2rem] md:p-[2.4rem] rounded-[1.4rem] bg-neutral-900/20 border border-neutral-800/60">
                             <div 
-                                className="stat-number text-[3.6rem] font-bold text-primary mb-[0.4rem] font-mono"
+                                className="stat-number text-[3rem] md:text-[3.6rem] font-bold text-primary mb-[0.4rem] font-mono"
                                 data-value={stat.value}
                             >
                                 0
                             </div>
-                            <div className="text-[1.2rem] text-neutral-400">
+                            <div className="text-[1.1rem] md:text-[1.2rem] text-neutral-400">
                                 {stat.label}
                             </div>
                         </div>
