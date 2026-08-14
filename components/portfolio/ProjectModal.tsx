@@ -116,7 +116,7 @@ export function ProjectModal({ item, onClose }: ProjectModalProps) {
                                             <img 
                                                 src={activeMedia.src} 
                                                 alt={activeMedia.label} 
-                                                className={`transition-all duration-300 block mx-auto object-contain ${activeMedia.customHeight ? activeMedia.customHeight : 'w-full h-full'}`}
+                                                className={`transition-all min-h-full duration-300 block mx-auto object-contain ${activeMedia.customHeight ? activeMedia.customHeight : 'w-full h-full'}`}
                                             />
                                         )
                                     ) : (

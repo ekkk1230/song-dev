@@ -144,8 +144,8 @@ export const projectGroups: {
           result: '레이아웃 재작업 없이 데이터 타입 정의만으로 기능 확장이 가능하여 유지보수 효율 극대화',
           images: [
             { id: 1, src: '/project/diagram.png', label: '모달 폴더 구조도', desc: 'Fragment 컴포넌트 체계화', customHeight: 'h-full' },
-            { id: 2, src: '/project/pop-layout.png', label: '공통 모달 레이아웃', desc: 'HTML 컨테이너 표준화' },
-            { id: 3, src: '/project/popup-js.png', label: '핵심 동적 렌더링 로직', desc: '모달 타입별 분기 제어 및 상태 관리', customHeight: 'h-full' },
+            { id: 2, src: '/project/pop-layout.png', label: '공통 모달 레이아웃', desc: 'HTML 컨테이너 표준화', customHeight: 'h-[300px]' },
+            { id: 3, src: '/project/popup-js.png', label: '핵심 동적 렌더링 로직', desc: '모달 타입별 분기 제어 및 상태 관리', customHeight: 'h-[1200px]' },
           ]
         }
       },
@@ -213,7 +213,7 @@ export const projectGroups: {
               src: "/project/gsap.png", 
               label: 'GSAP ScrollTrigger와 Timeline을 활용한 반응형 스크롤 인터랙션 구현', 
               desc: 'ScrollTrigger와 타임라인 라벨 시스템을 활용해 디바이스 환경별 반응형 스크롤 인터랙션과 순차적 애니메이션을 최적화' ,
-              customHeight: 'h-[1200px]'
+              customHeight: 'h-[700px]'
             }
           ]
         }
